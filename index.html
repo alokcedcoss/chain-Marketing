@@ -9,6 +9,32 @@
   <body>
     <script>
       const schemeamount = 5000;
+      function cal()
+      {
+            var option = prompt("enter Yes(Y) if parent having child otherwie enter No(N)");
+            if (option != null) {
+              if (option.match(/y/i)) {
+                var childprompt = prompt("Enter the child Name");
+                if (childprompt != null) {
+                  if (childprompt.match(/,/i)) {
+                    var childnamesingle = childprompt.split(",");
+                    console.log(childnamesingle);
+                    var d = childnamesingle.length + 1;
+                    console.log("COMISSION DETAILS:");
+                    console.log("TOTAL MEMBER:" + d);
+                    console.log("Parent Name:" + parentname);
+                    var per =
+                      (childnamesingle.length * (schemeamount * 10)) / 100;
+                    console.log("Total Income of" + parentname + ":" + per);
+                    for (var i = 0; i < childnamesingle.length; i++) {
+                      var childper = (schemeamount * 5) / 100;
+                      console.log("Total Income of :" +childnamesingle[i] +":" +childper);
+                    }
+                  }
+                }
+              }
+            }
+      }
       var parentname = prompt("Enter the parent name");
       if (parentname == "") {
         alert("Please Enter the Parent Name ");
@@ -49,22 +75,24 @@
                   var childper = (schemeamount * 5) / 100;
                   console.log("Total Income of " + childnamesingle[i] + ":" + childper); 
                 }
-              } else {
+              }
+               else 
+               {
                 var d = 2;
                 console.log("COMISSION DETAILS:");
                 console.log("TOTAL MEMBER:" + d);
                 console.log("Parent Name:" + parentname);
                 var per = (schemeamount * 10) / 100;
                 console.log("Total Income of" + parentname + ":" + per);
-                for (var i = 0; i < 1; i++) {
+                for (var i = 0; i <d; i++) {
                   var childper = (schemeamount * 5) / 100;
                   console.log("Total Income of " + childprompt + ":" + childper);
                 }
               }
             }
           } else if (option.match(/n/i)) {
-            var option = prompt(
-              "enter Yes(Y) if parent having child otherwie enter No(N)");
+            var option = prompt("enter Yes(Y) if parent having child otherwie enter No(N)");
+            
             if (option != null) {
               if (option.match(/y/i)) {
                 var childprompt = prompt("Enter the child Name");
@@ -87,10 +115,13 @@
                 }
               }
             }
+           
           } else if (option == "") {
             alert("sorry!!Please enter the Y or N");
+            
           } else {
             alert("Please enter the valid input");
+        cal();
           }
         }
       }
